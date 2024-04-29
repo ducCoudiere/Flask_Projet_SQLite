@@ -15,6 +15,8 @@ cur.execute("INSERT INTO clients (nom, prenom, adresse) VALUES (?, ?, ?)",('LAMB
 cur.execute("INSERT INTO clients (nom, prenom, adresse) VALUES (?, ?, ?)",('GAGNON', 'Nicolas', '456, Boulevard des Cerisiers, 69003 Lyon'))
 cur.execute("INSERT INTO clients (nom, prenom, adresse) VALUES (?, ?, ?)",('DUBOIS', 'Charlotte', '789, Rue des Roses, 13005 Marseille'))
 cur.execute("INSERT INTO clients (nom, prenom, adresse) VALUES (?, ?, ?)",('LEFEVRE', 'Thomas', '333, Rue de la Paix, 75002 Paris'))
+cur.execute("INSERT INTO clients (nom, prenom, adresse) VALUES (?, ?, ?)",('NGUYEN', 'Thanh Minh', '25, Rue des Lumières, 91550 Paray'))
+cur.execute("INSERT INTO clients (nom, prenom, adresse) VALUES (?, ?, ?)",('COUDIERE', 'Gia Minh', '11, Rue du Laurier, 91550 Paray'))
 
 connection.commit()
 connection.close()
