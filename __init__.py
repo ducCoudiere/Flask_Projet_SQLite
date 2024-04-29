@@ -81,7 +81,7 @@ def enregistrer_client():
 def ReadficheN(post_str):
     conn = sqlite3.connect('database.db')
     cursor = conn.cursor()
-    cursor.execute('SELECT * FROM clients WHERE nom = ?', post_str)
+    cursor.execute('SELECT * FROM clients WHERE nom = ?', (post_str,))
     data = cursor.fetchall()
     conn.close()
     # Rendre le template HTML et transmettre les données
