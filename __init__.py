@@ -88,6 +88,7 @@ def ReadficheN(post_str):
         # Rediriger vers la page d'authentification si l'utilisateur n'est pas authentifié
         return redirect(url_for('authentification'))
   # Si l'utilisateur est authentifié    
+    else:
     # Rendre le template HTML et transmettre les données
        return render_template('read_data.html', data=data)
 
