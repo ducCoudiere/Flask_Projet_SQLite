@@ -84,9 +84,12 @@ def ReadficheN(post_str):
     cursor.execute('SELECT * FROM clients WHERE nom = ?', (post_str,))
     data = cursor.fetchall()
     conn.close()
+    if not authentification():
+        # Rediriger vers la page d'authentification si l'utilisateur n'est pas authentifié
+        return redirect(url_for('authentification'))
+  # Si l'utilisateur est authentifié    
     # Rendre le template HTML et transmettre les données
-    return redirect(url_for('authentification'))
-    return render_template('read_data.html', data=data)
+       return render_template('read_data.html', data=data)
 
 
 
