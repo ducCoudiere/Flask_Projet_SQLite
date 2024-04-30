@@ -79,16 +79,16 @@ def enregistrer_client():
 
 @app.route('/fiche_nom/<post_str>')
 def ReadficheN(post_str):
-    conn = sqlite3.connect('database.db')
-    cursor = conn.cursor()
-    cursor.execute('SELECT * FROM clients WHERE nom = ?', (post_str,))
-    data = cursor.fetchall()
-    conn.close()
 if request.method == 'POST':
         # Vérifier les identifiants
         if request.form['username'] == 'user' and request.form['password'] == '12345': # password à cacher par la suite
             session['authentifie'] = True
             # Rediriger vers la route lecture après une authentification réussie
+            conn = sqlite3.connect('database.db')
+            cursor = conn.cursor()
+            cursor.execute('SELECT * FROM clients WHERE nom = ?', (post_str,))
+            data = cursor.fetchall()
+            conn.close()
             return render_template('read_data.html', data=data))
         else:
             # Afficher un message d'erreur si les identifiants sont incorrects
