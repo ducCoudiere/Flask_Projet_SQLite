@@ -79,7 +79,7 @@ def enregistrer_client():
 
 @app.route('/fiche_nom/<post_str>')
 def ReadficheN(post_str):
-    return redirect(url_for('authentification'))
+    if not est_authentifie():
     conn = sqlite3.connect('database.db')
     cursor = conn.cursor()
     cursor.execute('SELECT * FROM clients WHERE nom = ?', (post_str,))
