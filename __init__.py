@@ -119,7 +119,7 @@ def Readfiche(post_id):
     data = cursor.fetchall()
     conn.close()
     # Rendre le template HTML et transmettre les données
-    return render_template('read_data.html', data=data)
+    return render_template('read_data2.html', data=data)
 
 
 
