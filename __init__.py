@@ -92,7 +92,24 @@ def ReadficheN(post_str):
     # Rendre le template HTML et transmettre les données
        return render_template('read_data.html', data=data)
 
+@app.route('/enregistrer_livre', methods=['GET'])
+def formulaire_livre():
+    return render_template('formulaireLivre.html')  # afficher le formulaire
 
+@app.route('/enregistrer_livre', methods=['POST'])
+def enregistrer_livre():
+    nom = request.form['nom']
+    prenom = request.form['prenom']
+
+    # Connexion à la base de données
+    conn = sqlite3.connect('database.db')
+    cursor = conn.cursor()
+
+    # Exécution de la requête SQL pour insérer un nouveau livre
+    cursor.execute('INSERT INTO clients (created, nom, prenom, adresse) VALUES (?, ?, ?, ?)', (1002938, nom, prenom, "ICI"))
+    conn.commit()
+    conn.close()
+    return redirect('/consultation/')  # Rediriger vers la page d'accueil après l'enregistrement
 
 
 if __name__ == "__main__":
