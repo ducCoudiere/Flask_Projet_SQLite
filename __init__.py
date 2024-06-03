@@ -98,15 +98,15 @@ def formulaire_livre():
 
 @app.route('/enregistrer_livre', methods=['POST'])
 def enregistrer_livre():
-    nom = request.form['nom']
-    prenom = request.form['prenom']
+    Titre = request.form['Titre']
+    Auteur = request.form['Auteur']
 
     # Connexion à la base de données
-    conn = sqlite3.connect('database.db')
+    conn = sqlite3.connect('database2.db')
     cursor = conn.cursor()
 
     # Exécution de la requête SQL pour insérer un nouveau livre
-    cursor.execute('INSERT INTO clients (created, nom, prenom, adresse) VALUES (?, ?, ?, ?)', (1002938, nom, prenom, "ICI"))
+    cursor.execute('INSERT INTO Livres (ID_livre, Titre, Auteur, Annee_publication,Quantite) VALUES (?, ?, ?, ?,?)', (10029382, Titre, Auteur, Annee_publication, "ICI"))
     conn.commit()
     conn.close()
     return redirect('/consultation/')  # Rediriger vers la page d'accueil après l'enregistrement
