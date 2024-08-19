@@ -93,7 +93,7 @@ def ReadficheN(post_str):
        return render_template('read_data.html', data=data)
 
 
-
+ 
 
 
 
